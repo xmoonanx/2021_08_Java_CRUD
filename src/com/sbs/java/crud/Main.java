@@ -33,7 +33,7 @@ public class Main {
 				System.out.println("게시물이 없습니다.");
 			}
 			else {
-				System.out.printf("%s(은)는 존재하지 않는 명령어.\n", command);
+				System.out.printf("%s(은)는 존재하지 않는 명령어입니다.\n", command);
 			}
 		}
 		
