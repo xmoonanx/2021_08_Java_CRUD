@@ -38,10 +38,12 @@ public class Main {
 				System.out.printf("%d번 글이 생성되었습니다.\n", id);
 			}
 			else if(command.equals("article list")) {
+				
 				if (articles.size() ==0) {
 					System.out.println("게시물이 없습니다.");
 					continue;
 				}
+				
 				System.out.println("번호 | 제목");
 				for (int i = articles.size() - 1; i >= 0; i--) {
 					Article article = articles.get(i);
@@ -49,8 +51,37 @@ public class Main {
 					System.out.printf("%d   | %s\n", article.id, article.title);
 				}
 			}
+			
+			else if (command.startsWith("article detail")) {
+				String[] commandBits = command.split(" ");
+				int id = Integer.parseInt(commandBits[2]);
+				
+				Article foundArticle = null;
+				
+				
+				for(int i =0; i<articles.size(); i++) {
+					Article article = articles.get(i);
+					
+					if(article.id == id) {
+						foundArticle = article;
+						break;
+					}
+				}
+				if(foundArticle == null) {
+					System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
+					continue;
+				}
+				
+				System.out.printf("번호 : %d\n", foundArticle.id);
+				System.out.printf("날짜 : 2021-12-12 12:12:12\n");
+				System.out.printf("제목 : %s\n", foundArticle.title);
+				System.out.printf("내용 : %s\n", foundArticle.body);
+			}
+			
+			
 			else {
 				System.out.printf("%s(은)는 존재하지 않는 명령어입니다.\n", command);
+				
 			}
 		}
 		
