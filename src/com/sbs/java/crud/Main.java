@@ -52,7 +52,7 @@ public class Main {
 				}
 			}
 			
-			else if (command.startsWith("article detail")) {
+			else if (command.startsWith("article detail ")) {
 				String[] commandBits = command.split(" ");
 				int id = Integer.parseInt(commandBits[2]);
 				
@@ -76,8 +76,33 @@ public class Main {
 				System.out.printf("날짜 : 2021-12-12 12:12:12\n");
 				System.out.printf("제목 : %s\n", foundArticle.title);
 				System.out.printf("내용 : %s\n", foundArticle.body);
+				
+				
 			}
-			
+			else if (command.startsWith("article delete ")) {
+				String[] commandBits = command.split(" ");
+				int id = Integer.parseInt(commandBits[2]);
+				
+				int foundIndex = -1;
+				
+				for (int i =0; i<articles.size(); i++) {
+					Article article = articles.get(i);
+					
+					if (article.id == id) {
+						foundIndex =i;
+						break;
+					}
+				}
+				
+				
+				if( foundIndex == -1 ) {
+					System.out.printf("%d번 게시물은 존재하지 않습니다.\n", id);
+					continue;
+				}
+				articles.remove(foundIndex);
+				System.out.printf("%d번 게시물이 삭제되었습니다.\n", id);
+				
+			}
 			
 			else {
 				System.out.printf("%s(은)는 존재하지 않는 명령어입니다.\n", command);
