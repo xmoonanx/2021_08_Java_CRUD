@@ -25,7 +25,7 @@ public class Main {
 			if(command.equals("article write")) { // 제목+내용쓰기
 				int id = lastArticleId + 1;
 				lastArticleId = id;
-				String regDate = Util.getNowDateStr();
+				String regDate = Util.getNowDateStr(); //날짜 util 가져옴
 				
 				System.out.println("제목 : ");
 				String title = sc.nextLine();
