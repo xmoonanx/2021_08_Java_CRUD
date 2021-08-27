@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.sbs.java.crud.dto.Article;
+import com.sbs.java.crud.util.Util;
+
 public class Main {
 	
 	private static List<Article> articles;
@@ -165,29 +168,5 @@ public class Main {
 		articles.add(new Article(1, Util.getNowDateStr(), "제목1", "내용1", 11));
 		articles.add(new Article(2, Util.getNowDateStr(), "제목1", "내용1", 22));
 		articles.add(new Article(3, Util.getNowDateStr(), "제목1", "내용1", 33));
-	}
-}
-
-class Article {
-	int id;
-	String regDate;
-	String title;
-	String body;
-	int hit;
-	
-	public Article(int id, String regDate, String title, String body) {
-		this(id, regDate, title, body, 0);
-	}
-
-	public Article(int id, String regDate, String title, String body, int hit) {
-		this.id = id;
-		this.regDate = regDate;
-		this.title = title;
-		this.body = body;
-		this.hit = hit;
-	}
-	
-	public void increaseHit() {
-		hit++;
 	}
 }
