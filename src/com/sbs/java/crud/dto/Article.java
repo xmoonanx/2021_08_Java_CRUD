@@ -1,6 +1,6 @@
 package com.sbs.java.crud.dto;
 
-public class Article {
+public class Article extends Dto{
 	public int id;
 	public String regDate;
 	public String title;
