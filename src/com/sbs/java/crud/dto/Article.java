@@ -1,6 +1,6 @@
 package com.sbs.java.crud.dto;
 
-public class Article extends Dto{
+public class Article extends Dto{ //회원 데이터
 	public int id;
 	public String regDate;
 	public String title;
